@@ -1,0 +1,26 @@
+<div class="plans-container" *ngIf="plans">
+    <h2>Plans</h2>
+    <table class="plans-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Is Unlimited</th>
+          <th>Validity</th>
+          <th>Data (GB)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of plans">
+          <td>{{ plan.name }}</td>
+          <td>{{ plan.price }}</td>
+          <td>{{ plan.isUnlimited ? 'Yes' : 'No' }}</td>
+          <td>{{ plan.validity }}</td>
+          <td>{{ plan.data }}</td>
+          <td><button>Recharge Now</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

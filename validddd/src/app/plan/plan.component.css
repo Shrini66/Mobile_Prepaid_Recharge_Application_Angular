@@ -1,0 +1,34 @@
+
+
+/* In your component's CSS file or the global styles (styles.css) */
+
+.plans-container {
+    text-align: center; /* Center the content */
+  }
+  
+  .plans-table {
+    width: 80%; /* Set the width of the table */
+  border-collapse: separate; /* Separate the borders */
+  /* Increase spacing between rows */
+  margin: 0 auto; /* Center the table horizontally */
+  height: 150px; /* Set the height of the table */
+  overflow-y: auto;
+  }
+  
+  .plans-table th, .plans-table td {
+    border: 1px solid #ddd; /* Add border to cells */
+    padding: 8px; /* Add padding to cells */
+  }
+  
+  .plans-table th {
+    background-color: #f2f2f2; /* Background color for header */
+  }
+  
+  .plans-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row color */
+  }
+  
+  .plans-table tr:hover {
+    background-color: #ddd; /* Hover color */
+  }
+  
