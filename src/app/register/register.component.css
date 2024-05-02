@@ -1,0 +1,136 @@
+.register-form {
+    max-width: 350px; /* Adjusted width */
+    width: 100%; /* Ensure it fills available space */
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(8, 7, 16, 0.6);
+    padding: 30px 20px;
+  }
+  
+  .form-heading {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  label {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+  
+  input {
+    display: block;
+    height: 50px; /* Increased input height */
+    width: 93%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 16px; /* Increased font size for inputs */
+    font-weight: 300;
+    color: #ffffff;
+  }
+  
+  button {
+    margin-top: 30px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  p {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  a {
+    color: #23a2f6;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .message {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffffff;
+    animation-duration: 1.5s;
+  }
+  
+  .message.error {
+    color: #ff3333; /* Red color for error messages */
+    animation-name: fadeInOutError;
+  }
+  
+  .message.success {
+    color: #33cc33; /* Green color for success messages */
+    animation-name: fadeInOutSuccess;
+  }
+  
+  @keyframes fadeInOutError {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInOutSuccess {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media screen and (max-width: 768px) {
+    .register-form {
+      /* No change needed here, 80% width works well */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .register-form {
+      width: 95%; /* Increased width for smaller screens */
+    }
+  
+    input {
+      font-size: 14px; /* Adjust font size for smaller screens (optional) */
+    }
+  }
+  .loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

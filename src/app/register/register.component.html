@@ -1,0 +1,25 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+    <h3 class="form-heading">Register Here</h3>
+    <div>
+        <label for="name">Name</label>
+        <input type="text" formControlName="name" id="name" required>
+    </div>
+    <div>
+        <label for="mobileNumber">Mobile Number</label>
+        <input type="text" formControlName="mobileNumber" id="mobileNumber" required>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" formControlName="email" id="email" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" id="password" required>
+    </div>
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    <p>Already have an account? <a href="/login">Login</a></p>
+    <div class="loading-indicator" *ngIf="loading">
+        <div class="spinner"></div>
+    </div>
+    <div class="message" [@fadeInOut]="messageState" *ngIf="message">{{ message }}</div>
+</form>
