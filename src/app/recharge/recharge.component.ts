@@ -90,7 +90,7 @@ export class RechargeComponent implements OnInit {
         plan: this.selectedPlan,
         paymentMethod: paymentMethod
       };
-
+  
       if (this.subscriber) {
         this.rechargeService.rechargeSubscriber(rechargeRequest, this.subscriber).subscribe(
           (recharge) => {
@@ -98,6 +98,11 @@ export class RechargeComponent implements OnInit {
             this.rechargeService.saveRecharge(recharge).subscribe(
               (savedRecharge) => {
                 console.log('Recharge saved successfully:', savedRecharge);
+                if (this.subscriber!.email && this.selectedPlan) {
+                  this.sendRechargeEmail(this.subscriber!.email, mobileNumber, this.selectedPlan.name, this.selectedPlan.price);
+                } else {
+                  console.log('Subscriber email or selected plan is null');
+                }
                 this.showSuccessMessageWithTimeout();
               },
               (error) => {
@@ -115,6 +120,25 @@ export class RechargeComponent implements OnInit {
         console.log('Subscriber is null');
         this.showErrorMessageWithTimeout('Subscriber is null');
       }
+    } else {
+      // Handle invalid form or missing data
+      this.showErrorMessageWithTimeout('Please fill in all required fields and select a plan and payment method');
+    }
+  }
+
+  sendRechargeEmail(subscriberEmail: string, mobileNumber: string, planName: string, planPrice: number) {
+    if (this.selectedPlan) {
+      this.rechargeService.sendRechargeEmail(subscriberEmail, mobileNumber, this.selectedPlan.name, this.selectedPlan.price).subscribe(
+        (response) => {
+          alert('Recharge Done Successfully! \n Recharge Invoice Has Been Sent To Your Registerd Email ID !');
+        },
+        (error) => {
+          console.log('Error sending email:', error);
+          this.showErrorMessageWithTimeout('Error sending email');
+        }
+      );
+    } else {
+      console.log('Selected plan is null');
     }
   }
 }

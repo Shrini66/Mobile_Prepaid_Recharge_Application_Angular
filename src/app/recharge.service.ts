@@ -14,9 +14,8 @@ export class RechargeService {
   constructor(private http: HttpClient) { }
 
   rechargeSubscriber(rechargeRequest: RechargeRequest, subscriber: Subscriber): Observable<Recharge> {
-    const rechargeDate = new Date(); // Get the current date
-    const planExpirationDate = new Date(rechargeDate.getTime() + (28 * 24 * 60 * 60 * 1000)); // Calculate the plan expiration date (28 days from the recharge date)
-
+    const rechargeDate = new Date();
+    const planExpirationDate = new Date(rechargeDate.getTime() + (28 * 24 * 60 * 60 * 1000));
     const recharge: Recharge = new Recharge(
       subscriber,
       rechargeRequest.plan,
@@ -24,11 +23,20 @@ export class RechargeService {
       planExpirationDate,
       rechargeRequest.paymentMethod
     );
-
     return this.http.post<Recharge>(`${this.apiUrl}/save`, recharge);
   }
-  
+
   saveRecharge(recharge: Recharge): Observable<Recharge> {
     return this.http.post<Recharge>(`${this.apiUrl}/save`, recharge);
+  }
+
+  sendRechargeEmail(subscriberEmail: string, mobileNumber: string, planName: string, planPrice: number): Observable<string> {
+    const emailRequest = {
+      subscriberEmail,
+      mobileNumber,
+      planName,
+      planPrice
+    };
+    return this.http.post<string>(`${this.apiUrl}/send-email`, emailRequest);
   }
 }
