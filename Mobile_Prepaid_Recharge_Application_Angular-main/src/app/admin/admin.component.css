@@ -1,0 +1,66 @@
+.info-container {
+    margin-top: 20px;
+    border: 1px solid rgb(51, 40, 178);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(38, 137, 13, 0.1);
+}
+
+.info-container h3 {
+    color: rgb(45, 63, 196);
+    margin-top: 0;
+    padding-bottom: 10px;
+}
+
+.info-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-container li {
+    margin-bottom: 10px;
+}
+
+.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.responsive-table caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.responsive-table th,
+.responsive-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table th {
+    background-color: rgb(58, 34, 193);
+    color: white;
+}
+
+.responsive-table tbody tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.responsive-table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.responsive-table tbody td button {
+    background-color: rgb(55, 53, 189);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.responsive-table tbody td button:hover {
+    background-color: rgb(53, 56, 190);
+}
