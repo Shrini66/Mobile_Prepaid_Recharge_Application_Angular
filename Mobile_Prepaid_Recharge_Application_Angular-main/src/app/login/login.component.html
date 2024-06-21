@@ -1,0 +1,21 @@
+<app-navbar2></app-navbar2>
+<body>
+    <div class="background">
+        
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h3>Login Here</h3>
+        <div>
+            <label for="email">Username</label>
+            <input type="text" formControlName="email" id="email" placeholder="Email" required>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" id="password" placeholder="Password" required>
+        </div>
+        <button type="submit" [disabled]="loginForm.invalid">Log In</button>
+        <p>Don't have an account? <a href="/register">Register</a></p>
+        <p class="error-message" *ngIf="loginError">Invalid credentials</p>
+    </form>
+</body>
+<router-outlet></router-outlet>

@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<br><br>
+
+
+<div class="container">
+  <table class="responsive-table">
+    
+    <caption>Subscribers with Expiring Plans</caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">View Recharge History</th>
+        <th scope="col">Search User by ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let subscriber of expiringSubscribers">
+        <tr>
+          <td>{{ subscriber.name }}</td>
+          <td>{{ subscriber.mobileNumber }}</td>
+          <td>
+            <button (click)="viewRechargeHistory(subscriber)">Recharge History</button>
+          </td>
+          <td>
+            <button (click)="searchUserById(subscriber!.id!)">User Details</button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<ng-container *ngIf="selectedSubscriber">
+  <div class="info-container">
+    <h3>Recharge History for {{ selectedSubscriber.name }}</h3>
+    <ul>
+      <li *ngFor="let recharge of rechargeHistory">
+        <strong>Plan:</strong> {{ recharge.plan.name }} <br>
+        <strong>Recharge Date:</strong> {{ recharge.rechargeDate }} <br>
+        <strong>Payment Method:</strong> {{ recharge.paymentMethod }}
+      </li>
+    </ul>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="searchedSubscriber">
+  <div class="info-container">
+    <h3>User Details (ID: {{ searchedSubscriber.id }})</h3>
+    <p><strong>Name:</strong> {{ searchedSubscriber.name }}</p>
+    <p><strong>Mobile Number:</strong> {{ searchedSubscriber.mobileNumber }}</p>
+    <p><strong>Email:</strong> {{ searchedSubscriber.email }}</p>
+  </div>
+</ng-container>
+<router-outlet></router-outlet>
