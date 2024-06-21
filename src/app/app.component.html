@@ -4,8 +4,7 @@
       <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
       <li *ngIf="!isLoggedIn && !isHomePage"><a routerLink="/register">Register</a></li>
       <li *ngIf="isLoggedIn && isAdmin"><a routerLink="/admin">Admin Dashboard</a></li>
-      <li *ngIf="isLoggedIn && isUser"><a routerLink="/recharge">Recharge</a></li>
-      <li *ngIf="isLoggedIn && isUser"><a (click)="logout()">Logout</a></li>
+      
     </ul>
   </nav>
   

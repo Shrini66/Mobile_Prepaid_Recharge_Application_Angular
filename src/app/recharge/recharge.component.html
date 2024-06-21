@@ -1,3 +1,6 @@
+<app-navbar></app-navbar>
+
+
 <div *ngIf="subscriber; else notLoggedIn" class="container">
   <h2 class="heading">Recharge</h2>
 
@@ -58,3 +61,4 @@
 <ng-template #notLoggedIn>
   <p class="message">Please log in to proceed with recharge.</p>
 </ng-template>
+<router-outlet></router-outlet>

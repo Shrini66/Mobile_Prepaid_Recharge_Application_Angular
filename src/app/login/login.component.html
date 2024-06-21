@@ -1,7 +1,7 @@
+<app-navbar2></app-navbar2>
 <body>
     <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
+        
     </div>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h3>Login Here</h3>
@@ -18,3 +18,4 @@
         <p class="error-message" *ngIf="loginError">Invalid credentials</p>
     </form>
 </body>
+<router-outlet></router-outlet>
